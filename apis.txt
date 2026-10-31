@@ -1,0 +1,25 @@
+# ========================================================
+# Sunraise Solutions — Server & Database Specifications
+# (Credentials Masked for Public Repository Security)
+# ========================================================
+
+MySQL Database:
+  Host: localhost / 193.203.185.110
+  Database Name: u833088220_sunrise
+  Username: u833088220_Sunrise
+  Password: [MASKED_CREDENTIAL - See .env]
+
+Hostinger SSH / SFTP Configuration:
+  IP / Host: 193.203.185.110
+  Port: 65002
+  Username: u833088220
+  Password: [MASKED_CREDENTIAL - See .env]
+  Host Key Fingerprints:
+    - ED25519: SHA256:fy3Tz1V8Nn2vwh6Gaaq/JY2LLqjI5PJzihbsC/YfreE
+    - ECDSA: SHA256:Nodc9+BR4eID2TFA1LZvzzpBYrJrZh3JfpaFfyiTnuk
+    - RSA: SHA256:zTsj6PbTM0MRDtooQ0Qw61OLpy8/JSSjFC2Bj5Un9NI
+
+Target Directories:
+  - Frontend SPA: /home/u833088220/domains/testers.acheva.in/public_html
+  - Backend PHP Endpoints: /home/u833088220/domains/testers.acheva.in/public_html/api
+  - Media Asset Uploads: /home/u833088220/domains/testers.acheva.in/public_html/api/uploads

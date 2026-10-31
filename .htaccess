@@ -1,0 +1,41 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Sitemap.xml rewrite
+  RewriteRule ^sitemap\.xml$ api/sitemap.php [L,QSA]
+
+  # API v1 routes mapping directly to PHP endpoints
+  RewriteRule ^api/v1/services/?$ api/services.php [L,QSA]
+  RewriteRule ^api/v1/services/([^/]+)/?$ api/services.php?slug=$1 [L,QSA]
+  RewriteRule ^api/v1/pages/?$ api/pages.php [L,QSA]
+  RewriteRule ^api/v1/pages/([^/]+)/?$ api/pages.php?slug=$1 [L,QSA]
+  RewriteRule ^api/v1/projects/?$ api/projects.php [L,QSA]
+  RewriteRule ^api/v1/projects/([^/]+)/?$ api/projects.php?slug=$1 [L,QSA]
+  RewriteRule ^api/v1/testimonials/?$ api/testimonials.php [L,QSA]
+  RewriteRule ^api/v1/blogs/?$ api/blogs.php [L,QSA]
+  RewriteRule ^api/v1/blogs/([^/]+)/?$ api/blogs.php?slug=$1 [L,QSA]
+  RewriteRule ^api/v1/leads/?$ api/leads.php [L,QSA]
+  RewriteRule ^api/v1/redirects/?$ api/redirects.php [L,QSA]
+  RewriteRule ^api/v1/upload/?$ api/upload.php [L,QSA]
+
+  # Direct API access
+  RewriteCond %{REQUEST_URI} ^/api/
+  RewriteRule ^ - [L]
+
+  # React SPA fallback: Serve index.html for all non-file/non-directory requests
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Security Headers & Gzip Compression
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
