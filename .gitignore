@@ -1,6 +1,8 @@
 # Dependencies (except node_modules)
 node_modules/
 frontend/node_modules/
+__pycache__/
+*.pyc
 
 # Production build outputs
 frontend/dist/
